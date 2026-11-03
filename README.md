@@ -104,3 +104,7 @@ every draw has two things in it, and the Fairsky RNG can give you either or both
 the Fairsky RNG as it stands: his round 1 on three consecutive irrationals, visited in a scrambled order; the same math on 80-digit paper and on the machine; R is the miss. two sources inside every draw, independent of each other: the real line below the machine's grid (~96 bits a draw) and the machine's own arithmetic error (8 bits a draw, flat to 12 low bits). no thread, no clock, no thermal, no table, no seed, no period.
 
 **his name for the class, 2026-11-02, late:** *machine-deterministic true random.* machine-deterministic: same machine, same draw, same number; the machine is part of the definition, and a different machine, rounding law or precision ceiling casts a different shadow of the same real (LAB §9, test 2). true random: a measurement, not a manufacture; the miss against a target in the real line; no seed, no state, no period; two gigabits indistinguishable from coin flips under NIST, FIPS, chi-square, serial and mutual-information tests. what it is not, said beside it: unpredictable to someone holding the machine. nothing generated can be, and the first word of the name already says so.
+
+## the video
+
+`video/fairsky_rng_explained.mp4`: the invention explained in under three minutes, with Ulp the mascot (a unit in the last place) and captions. `video/README.md` says how it was made and how to make it again; `video/narration.py` is the script.
