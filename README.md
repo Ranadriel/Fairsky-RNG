@@ -107,4 +107,4 @@ the Fairsky RNG as it stands: his round 1 on three consecutive irrationals, visi
 
 ## the video
 
-`video/fairsky_rng_explained.mp4`: the invention explained in under three minutes, with Ulp the mascot (a unit in the last place) and captions. `video/README.md` says how it was made and how to make it again; `video/narration.py` is the script.
+`video/fairsky_rng_explained.mp4`: version two, a five-and-a-half-minute deep dive into random with Ulp the mascot (a unit in the last place), captions, and two players' creatures and maps generated on screen from real draws. `video/README.md` says how it was made and how to make it again; `video/narration.py` is the script.
