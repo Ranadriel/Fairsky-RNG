@@ -1,0 +1,20 @@
+stream streams/fairsky_tail_300M_scr.bin: 300000000 bits → 300 sequences of 1000000 bits
+pass rule: proportion of p>=0.01 must be >= 0.9728; p-values must be uniform (p_T >= 0.0001)
+
+test                     passed/N  proportion   p_T unif  verdict
+frequency               298/300        0.9933     0.9717  ok
+block_frequency         295/300        0.9833     0.3140  ok
+runs                    296/300        0.9867     0.5681  ok
+longest_run             297/300        0.9900     0.9950  ok
+matrix_rank             298/300        0.9933     0.0856  ok
+spectral                297/300        0.9900     0.2803  ok
+non_overlap_template    299/300        0.9967     0.9818  ok
+overlap_template        297/300        0.9900     0.7792  ok
+universal               299/300        0.9967     0.8285  ok
+serial_1                298/300        0.9933     0.6649  ok
+serial_2                297/300        0.9900     0.3896  ok
+approx_entropy          297/300        0.9900     0.8623  ok
+cusum_fwd               299/300        0.9967     0.9643  ok
+cusum_bwd               299/300        0.9967     0.5887  ok
+
+ALL PASS

@@ -1,0 +1,20 @@
+stream streams/fairsky_1G.bin: 1000000000 bits → 1000 sequences of 1000000 bits
+pass rule: proportion of p>=0.01 must be >= 0.9806; p-values must be uniform (p_T >= 0.0001)
+
+test                     passed/N  proportion   p_T unif  verdict
+frequency               992/1000       0.9920     0.1088  ok
+block_frequency         985/1000       0.9850     0.1948  ok
+runs                    994/1000       0.9940     0.5201  ok
+longest_run             991/1000       0.9910     0.5121  ok
+matrix_rank             985/1000       0.9850     0.9335  ok
+spectral                986/1000       0.9860     0.3071  ok
+non_overlap_template    990/1000       0.9900     0.6205  ok
+overlap_template        991/1000       0.9910     0.1653  ok
+universal               988/1000       0.9880     0.6662  ok
+serial_1                989/1000       0.9890     0.3873  ok
+serial_2                989/1000       0.9890     0.3554  ok
+approx_entropy          994/1000       0.9940     0.9166  ok
+cusum_fwd               988/1000       0.9880     0.7116  ok
+cusum_bwd               994/1000       0.9940     0.5955  ok
+
+ALL PASS

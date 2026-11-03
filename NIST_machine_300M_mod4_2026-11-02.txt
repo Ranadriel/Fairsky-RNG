@@ -1,0 +1,20 @@
+stream streams/fairsky_machine_300M_mod4.bin: 300000000 bits → 300 sequences of 1000000 bits
+pass rule: proportion of p>=0.01 must be >= 0.9728; p-values must be uniform (p_T >= 0.0001)
+
+test                     passed/N  proportion   p_T unif  verdict
+frequency               295/300        0.9833     0.4311  ok
+block_frequency         202/300        0.6733     0.0000  FAIL
+runs                    297/300        0.9900     0.0519  ok
+longest_run              82/300        0.2733     0.0000  FAIL
+matrix_rank             296/300        0.9867     0.1656  ok
+spectral                 17/300        0.0567     0.0000  FAIL
+non_overlap_template     66/300        0.2200     0.0000  FAIL
+overlap_template         37/300        0.1233     0.0000  FAIL
+universal                86/300        0.2867     0.0000  FAIL
+serial_1                 10/300        0.0333     0.0000  FAIL
+serial_2                 15/300        0.0500     0.0000  FAIL
+approx_entropy            9/300        0.0300     0.0000  FAIL
+cusum_fwd               296/300        0.9867     0.0054  ok
+cusum_bwd               295/300        0.9833     0.0003  ok
+
+SOME FAIL

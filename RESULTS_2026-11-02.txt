@@ -1,0 +1,33 @@
+fairsky_rng.py --test --n 20000 --blocks 100   run 2026-11-02 on Ranadriel's box (Ryzen 9 5950X, python 3.12.3)
+
+== 1. the paper test: is R the machine's miss, or the paper's noise?  (20000 draws)
+   P=80 vs P=160, 40 digits taken per draw: every draw agrees on the first 40 digits.
+   PASS: R belongs to the machine, not the paper.
+== 2. the machine test: does a different machine cast a different shadow?
+   target on paper (first 60 digits): 1.085505816438310203455024225668245289690567023256319760685207
+   float64 value: 1.0855058164383111         miss eps = 9.1843033858315720286571  rho = 4.1362425306088652540320
+   float32 value: 1.0855059623718262         miss eps = 1.4593351596841997577433  rho = 1.2241790595208155561403
+   float64 shadow: 1362425306088652540320918732017951416805
+   float32 shadow: 2241790595208155561403655522169393919441
+   PASS: different machine, different shadow.
+   (and eps32 − eps64 = 1.459335150499 = float32 − float64 = 1.459335e-07: both shadows are tails of the same real.)
+== 3. the randomness tests on the shadow digits  (20000 draws × 40 digits)
+   digits: 800000   counts 0..9: [80148, 79718, 79533, 80171, 80074, 79739, 79848, 80751, 80185, 79833]
+   chi-square (9 dof) = 13.39   critical 5% = 16.92, 1% = 21.67   PASS
+   serial correlation of consecutive digits = +0.00058   (|r| < 0.01 expected at this n)   PASS
+   FIPS 140-1 block 0: ones=10126 poker X=11.56 longest run=14  monobit ok poker ok runs ok longrun ok
+   FIPS 140-1 block 1: ones=10121 poker X=21.98 longest run=14  monobit ok poker ok runs ok longrun ok
+   FIPS 140-1 block 2: ones=10015 poker X=19.88 longest run=13  monobit ok poker ok runs ok longrun ok
+   FIPS 140-1: 95 of 95 blocks of 20,000 bits pass all four tests.  (a true source fails about 1 block in 100 by chance)
+   bytes: 239993  chi-square (255 dof) = 252.8   critical 5% = 293.2, 1% = 310.5   PASS
+== 4. rounds: the cast grows; where does the paper itself stop being the real line?
+   rounds= 1  free-running: paper P=80 and P=160 agree on  79 digits of the target; miss |eps| = 9.1843033
+   rounds= 5  free-running: paper P=80 and P=160 agree on  77 digits of the target; miss |eps| = 3.3057860
+   rounds=10  free-running: paper P=80 and P=160 agree on  72 digits of the target; miss |eps| = 5.9467492
+   rounds=20  free-running: paper P=80 and P=160 agree on  57 digits of the target; miss |eps| = 3.9616387
+   rounds=30  free-running: paper P=80 and P=160 agree on  45 digits of the target; miss |eps| = 2.8279057
+   rounds=40  free-running: paper P=80 and P=160 agree on  31 digits of the target; miss |eps| = 1.0862036
+   (free-running, the machine and the paper part ways by about one digit per round, and at P=80 the paper
+    itself drifts off the real line past ~60 rounds. anchored (--rounds without --free) re-aims the machine
+    at the paper every round, so every round's miss is a fresh, honest miss.)
+== done in 3.8s; about 5257 draws/s on one core, 40 digits ≈ 96 bits each
